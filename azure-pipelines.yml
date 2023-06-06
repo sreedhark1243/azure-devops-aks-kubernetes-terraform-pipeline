@@ -53,7 +53,7 @@ stages:
           docker pull tfsec/tfsec:latest
           docker run --rm -v "$(pwd):/src" tfsec/tfsec ./src --format JUnit --include-passed > TFSecReport/TFSec-Report.xml
           docker run --rm -v "$(pwd):/src" tfsec/tfsec ./src
-          workingDirectory: '$(System.DefaultWorkingDirectory)'
+#          workingDirectory: '$(System.DefaultWorkingDirectory)'
         displayName: TFSec Static Code Analysis
         condition: always()
         continueOnError: true
