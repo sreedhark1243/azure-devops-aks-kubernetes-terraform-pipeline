@@ -15,12 +15,12 @@ stages:
     - job: TerraformValidateJob
       continueOnError: false
       steps:
-      - task: PublishPipelineArtifact@1
-        displayName: Publish Artifacts
-        inputs:
-          targetPath: '$(System.DefaultWorkingDirectory)/terraform-manifests'
-          artifact: 'terraform-manifests-out'
-          publishLocation: 'pipeline'
+#      - task: PublishPipelineArtifact@1
+#        displayName: Publish Artifacts
+#        inputs:
+#          targetPath: '$(System.DefaultWorkingDirectory)/terraform-manifests'
+#          artifact: 'terraform-manifests-out'
+#          publishLocation: 'pipeline'
 #      - task: TerraformInstaller@0
 #        displayName: Terraform Install
 #        inputs:
