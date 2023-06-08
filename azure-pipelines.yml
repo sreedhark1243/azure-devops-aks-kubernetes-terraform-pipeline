@@ -57,19 +57,18 @@ stages:
         displayName: TFSec Static Code Analysis
         condition: always()
         continueOnError: true
-#      - task: PublishBuildArtifacts@1
-#        displayName: 'Publish Artifact: TFSec Report'
-#        condition: succeededOrFailed()
-#        inputs:
-#          PathtoPublish: '$(System.DefaultWorkingDirectory)'
-#          ArtifactName: 'TFSecReport'
-#          publishLocation: 'Container'
- # Publish the results of the TFSec analysis as Test Results to the pipeline
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: TFSec Report'
+        condition: succeededOrFailed()
+        inputs:
+          PathtoPublish: '$(System.DefaultWorkingDirectory)'
+          ArtifactName: 'TFSecReport'
+          publishLocation: 'Container'
+# Publish the results of the TFSec analysis as Test Results to the pipeline
       - task: PublishTestResults@2
         displayName: Publish TFSecReport Test Results
         condition: succeededOrFailed()
         inputs:
-          PathtoPublish: '$(System.DefaultWorkingDirectory)'
           testResultsFormat: 'JUnit' # Options JUnit, NUnit, VSTest, xUnit, cTest
           testResultsFiles: '**/*TFSec-Report.xml'
           searchFolder: '$(System.DefaultWorkingDirectory)'
