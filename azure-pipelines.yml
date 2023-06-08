@@ -69,6 +69,7 @@ stages:
         displayName: Publish TFSecReport Test Results
         condition: succeededOrFailed()
         inputs:
+          PathtoPublish: '$(System.DefaultWorkingDirectory)'
           testResultsFormat: 'JUnit' # Options JUnit, NUnit, VSTest, xUnit, cTest
           testResultsFiles: '**/*TFSec-Report.xml'
           searchFolder: '$(System.DefaultWorkingDirectory)'
